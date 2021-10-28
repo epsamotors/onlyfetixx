@@ -1,0 +1,155 @@
+body {
+    background : #f5f6f5;
+    font-family: 'Oswald', sans-serif;
+    /* overflow: hidden; */
+}
+
+.index {
+    /* width: 100vh;*/
+    /*Ancho total del dispositivo */
+    height: 100vh;
+    /* Alto total del dispositivo */
+}
+
+.masthead {
+    color              : yellow;
+    min-height         : 30 rem;
+    width              : 100%;
+    height             : 100%;
+    padding-top        : 8 rem;
+    background         : url('../img/fondo.jfif');
+    background-position: center, center;
+    background-repeat  : no-repeat;
+    background-size    : cover;
+}
+
+.masthead h1 {
+    font-size: 4rem;
+    margin   : 0;
+    padding  : 0;
+}
+
+/*  */
+
+.masthead h3 {
+    color: yellow;
+}
+
+.masthead p {
+    color: yellow;
+}
+
+/*  */
+
+@media (min-width: 992px) {
+    .masthead h1 {
+        font-size: 5.5rem;
+    }
+}
+
+/* Borde del navbar */
+/* .navbar {
+    border: yellow 5px solid;
+} */
+
+.navbar-nav .nav-link {
+    color: rgb(255 255 255);
+}
+
+/* Logo */
+.pricing {
+    position: absolute;
+    left    : 1%;
+    top     : 20%;
+}
+
+/* flashMessage */
+.flashMessage {
+    position: absolute;
+}
+
+.alert-success {
+    color           : #0f5132;
+    background-color: #d1e7dd96;
+    border-color    : #badbcc;
+}
+
+/* flashSuccess */
+.flashSuccess {
+    position: absolute;
+}
+
+.alert-danger {
+    color           : #842029;
+    background-color: #f8d7da8a;
+    border-color    : #f5c2c7;
+}
+
+/* Modal */
+.modal-content {
+    background-color: #ffffffd1;
+}
+
+/* Boton flotante */
+.float {
+    position           : fixed;
+    width              : 60px;
+    height             : 60px;
+    top                : 80px;
+    right              : 40px;
+    /* background-color: #9987879c;
+    color              : #FFF;
+    border             : yellow 5px solid; */
+    border-radius      : 50px;
+    text-align         : center;
+    font-size          : 20px;
+    box-shadow         : 2px 2px 3px #999;
+    z-index            : 100;
+}
+
+/* .float:hover {
+    text-decoration : none;
+    color           : #9987879c;
+    background-color: rgb(217, 216, 240);
+} */
+
+.my-float {
+    margin-top: 16px;
+}
+
+.textPurple {
+    color: #b82bb8;
+}
+
+/*----------------------------------*/
+/* Parte de nosotros */
+.usPartner {
+    position: absolute;
+    bottom  : 5px;
+    right   : 20px;
+}
+
+/* ------------------------------------------ */
+.carousel-inner.recommended .carousel-item.active,
+.carousel-inner.recommended .carousel-item-next,
+.carousel-inner.recommended .carousel-item-prev {
+    display: flex;
+}
+
+.carousel-inner.recommended .carousel-item-right.active,
+.carousel-inner.recommended .carousel-item-next {
+    transform: translateX(25%);
+}
+
+.carousel-inner.recommended .carousel-item-left.active,
+.carousel-inner.recommended .carousel-item-prev {
+    transform: translateX(-25%);
+}
+
+.carousel-inner.recommended .carousel-item-right,
+.carousel-inner.recommended .carousel-item-left {
+    transform: translateX(0);
+
+}
+
+/* ------------------------------------------ */

@@ -1,0 +1,173 @@
+<a class="nav-link float" href="/cart">
+    <i class="fa fa-shopping-bag"></i>
+</a>
+
+<div class="container p-4">
+    <div class="row">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+
+                     {{#if Comprarealizada}}
+                    <div class="mb-3">
+                        <div class="rounded-pill clearfix"
+                            style="border: 2px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                            <h2 class="textPurple">Compra realizada</h2>
+                        </div>
+                    </div>
+                        {{/if}}
+
+                    {{#if image}}
+                    <div class="mb-3">
+                        <div class="rounded-pill clearfix"
+                            style="border: 2px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                            <h2 class="textPurple">Mis Imagenes</h2>
+                        </div>
+                    </div>
+                    {{#each image}}
+                    <div class="col-md-3 text-center">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <img src="{{PRODUCTO_URL}}" class="card-img-top" width="100px" height="250px">
+                                <h3 class="card-title text-uppercase">
+                                    {{PRODUCTO_NOMBRE}}
+                                </h3>
+                                <div class="d-grid gap-3">
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#myModalImage{{@index}}">
+                                        Ver Imagen
+                                    </button>
+                                </div>
+                                <br>
+                                <div class="d-grid gap-3">
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#myCommentImage{{@index}}">
+                                        Comentar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="myModalImage{{@index}}" tabindex="-1"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">
+                                        {{PRODUCTO_NOMBRE}}</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <img src="{{PRODUCTO_URL}}" class="card-img-top" width="90px" height="500px">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="myCommentImage{{@index}}" data-bs-backdrop="static"
+                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-success textPurple" id="staticBackdropLabel">
+                                        <i class="fal fa-check-circle"> Comentar '{{PRODUCTO_NOMBRE}}'</i>
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/profile/comment" method="POST">
+                                        <div class="col-12">
+                                            <textarea name="COMENTARIO_DESCRIPCION" rows="4" class="form-control"
+                                                placeholder="COMENTARIO" style="text-transform:uppercase" required
+                                                autofocus></textarea>
+                                        </div>
+                                        <input type="hidden" name="PRODUCTO_ID" value={{PRODUCTO_ID}}>
+                                        <div class="col-12 text-center">
+                                            <button class="btn btn-warning">
+                                                Aceptar
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    {{/each}}
+                    {{else}}
+                    <div class="mb-3">
+                        <div class="rounded-pill clearfix"
+                            style="border: 2px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                            <h2 class="textPurple">No tienes nada jaja :)</h2>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if video}}
+                    <div class="mb-3">
+                        <div class="rounded-pill clearfix"
+                            style="border: 2px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                            <h2 class="textPurple">Mis Videos</h2>
+                        </div>
+                    </div>
+                    {{#each video}}
+                    <div class="col-md-3 text-center">
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <video src="{{PRODUCTO_URL}}" autoplay muted width="100px" height="250px"></video>
+                                <h3 class="card-title text-uppercase">
+                                    {{PRODUCTO_NOMBRE}}
+                                </h3>
+                                <div class="d-grid gap-3">
+                                    <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#myModalVideo{{@index}}">
+                                        Ver Video
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="myModalVideo{{@index}}" data-bs-backdrop="static"
+                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-success textPurple" id="staticBackdropLabel">
+                                        {{PRODUCTO_NOMBRE}}
+                                    </h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body text-center">
+                                    <video width="600" height="400" controls>
+                                        <source src="{{PRODUCTO_URL}}" type="video/mp4">
+                                    </video>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    {{/each}}
+                    {{/if}}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="usPartner">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd19JDcSrRtjWgWOQEapWQa3f2a_TX-ufPWBVUcNt_6yWwItg/viewform"
+        target="_blank">
+        Se parte de nosotros
+    </a>
+</div>

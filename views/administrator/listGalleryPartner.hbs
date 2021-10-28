@@ -1,0 +1,132 @@
+<div class="container p-4">
+    <div class="row">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <div class="row">
+
+                        {{#if images}}
+                        <div class="rounded-pill clearfix"
+                            style="border: 1px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                            <h2 style="color: #b82bb8;">Imagenes de {{profile.PERSONA_NOMBRE}}</h2>
+                        </div>
+                        <div class="mb-3">
+                        </div>
+                        {{#each images}}
+                        <div class="col-md-3">
+                            <div class="card mb-4 shadow-sm">
+
+                                <div class="card-body">
+                                    <h3 class="card-title text-uppercase text-center">
+                                        {{PRODUCTO_NOMBRE}}
+                                    </h3>
+                                    <img src="{{PRODUCTO_URL}}" class="card-img-top" width="90px" height="200px">
+                                    <p class="m-2">Precio: $ {{PRODUCTO_PRECIO}}</p>
+                                    <div class="d-grid gap-3">
+                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                            data-bs-target="#myModalImage{{@index}}">
+                                            Ver Imagen
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="myModalImage{{@index}}" tabindex="-1"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">
+                                            {{PRODUCTO_NOMBRE}}</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <img src="{{PRODUCTO_URL}}" class="card-img-top" width="90px" height="500px">
+                                        <p class="m-2">Precio: $ {{PRODUCTO_PRECIO}}</p>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        
+                                        <a href="/administrator/deleteGalleryPartner/{{PRODUCTO_ID}}"
+                                            class="btn btn-outline-danger">Eliminar</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        {{/each}}
+                        {{/if}}
+
+                        {{#if videos}}
+                        <div class="rounded-pill clearfix"
+                            style="border: 1px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                            <h2 style="color: #b82bb8;">Videos de {{profile.PERSONA_NOMBRE}}</h2>
+                        </div>
+                        <div class="mb-3">
+                        </div>
+                        {{#each videos}}
+                        <div class="col-md-3">
+                            <div class="card mb-4 shadow-sm">
+
+                                <div class="card-body">
+                                    <h3 class="card-title text-uppercase text-center">
+                                        {{PRODUCTO_NOMBRE}}
+                                    </h3>
+                                    <video src="{{PRODUCTO_URL}}" preload muted width="200px" height="150px"></video>
+
+                                    <p class="m-2">Precio: $ {{PRODUCTO_PRECIO}}</p>
+                                    <div class="d-grid gap-3">
+                                        <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                            data-bs-target="#myModalVideo{{@index}}">
+                                            Ver Video
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="modal fade" id="myModalVideo{{@index}}" data-bs-backdrop="static"
+                            data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title text-success textPurple" id="staticBackdropLabel">
+                                            {{PRODUCTO_NOMBRE}}
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body text-center">
+                                        <video width="600" height="400" controls>
+                                            <source src="{{PRODUCTO_URL}}" type="video/mp4">
+                                        </video>
+                                        <p class="m-2">Precio: $ {{PRODUCTO_PRECIO}}</p>
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <a href="/administrator/addGalleryPartner/{{PRODUCTO_ID}}"
+                                            class="btn btn-outline-warning">Agregar</a>
+                                        <a href="/administrator/deleteGalleryPartner/{{PRODUCTO_ID}}"
+                                            class="btn btn-outline-danger">Eliminar</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        {{/each}}
+                        {{/if}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

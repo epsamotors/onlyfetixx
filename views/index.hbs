@@ -1,0 +1,105 @@
+<main class="index">
+    <header class="masthead d-flex">
+        <div class="container my-auto">
+
+            <div class="col-xs-12 col-md-2 col-md-pull-9">
+                <div class="panel panel-default">
+                    <div class="card">
+                        <div class="d-grid gap-3">
+                            <button type="button" class="btn btn-outline-warning textPurple" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">
+                                Login
+                            </button>
+                        </div>
+                        <div class="d-grid gap-3">
+                            <button type="button" class="btn btn-outline-warning textPurple" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">
+                                Crear Cuenta
+                            </button>
+                        </div>
+                        {{!-- <div class="d-grid gap-3">
+                            <button type="button" class="btn btn-outline-warning textPurple" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">
+                                Se parte de nosotros
+                            </button>
+                        </div> --}}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </header>
+</main>
+
+<div class="modal fade" id="loginModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success textPurple" id="staticBackdropLabel">
+                    <i class="fal fa-check-circle"> Login</i>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/signin" method="POST">
+                    <div class="mb-1">
+                        <input type="email" name="email" placeholder="CORREO" class="form-control textPurple" required
+                            autofocus>
+                    </div>
+                    <div class="mb-1">
+                        <input type="password" name="password" placeholder="CONTRASEÑA" class="form-control textPurple"
+                            required>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="btn btn-warning">
+                            Aceptar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="registerModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="staticBackdropLabel">
+                    <i class="fal fa-check-circle"> Registrarse</i>
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="/signup" class="row g-3 needs-validation" method="POST" enctype="multipart/form-data">
+
+                    <div class="mb-1">
+                        <input type="text" name="PERSONA_NOMBRE" class="form-control" placeholder="NOMBRE"
+                            class="form-control" style="text-transform:uppercase" maxlength="60"
+                            oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            required autofocus>
+                    </div>
+                    <div class="mb-1">
+                        <input type="email" name="PERSONA_CORREO" class="form-control" placeholder="CORRREO"
+                            maxlength="60"
+                            oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            required>
+                    </div>
+                    <div class="mb-1">
+                        <input type="password" name="PERSONA_CONTRASENA" class="form-control" placeholder="CONTRASEÑA"
+                            class="form-control" maxlength="60"
+                            oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            required>
+                    </div>
+                    <div class="col-12 text-center">
+                        <button class="btn btn-primary">
+                            Aceptar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

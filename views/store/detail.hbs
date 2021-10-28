@@ -1,0 +1,124 @@
+<a class="nav-link float" href="/cart">
+    <i class="fa fa-shopping-bag"></i>
+    {{!-- <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        99+
+        <span class="visually-hidden">unread messages</span>
+    </span> --}}
+</a>
+
+<div class="container p-4">
+    <div class="card mb-8">
+        <div class="row g-0">
+            <div class="col-md-4">
+
+                <div class="card">
+                    <div class="card-body">
+                        {{#if isVideo}}
+                        <video src="{{detail.PRODUCTO_URL}}" width="300" height="250"></video>
+                        {{else}}
+                        <img src="{{detail.PRODUCTO_URL}}" class="card-img-top" width="80px" height="500px">
+                        {{/if}}
+                    </div>
+                    {{!-- <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div> --}}
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <div class="col-md-4">
+                        <h5 class="card-title">{{detail.PRODUCTO_NOMBRE}}</h5>
+                    </div>
+                    <div class="col-md-4">
+                        <h3 class="card-title">Precio: COP {{detail.PRODUCTO_PRECIO}}</h3>
+                    </div>
+                    <div class="col-md-4">
+                        <form action="/shop" method="POST">
+                            <input type="hidden" name="PRODUCTO_ID" value="{{detail.PRODUCTO_ID}}">
+                            <button type="submit" class="btn btn-block btn-warning">Comprar</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <p>Fecha: {{feachaAlta}}</p>
+                    </div>
+                    <textarea rows="6" class="form-control" readonly>{{detail.PRODUCTO_DESCRIPCION}}</textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container p-4">
+    <div class="card">
+        <div class="card-body shadow-sm bg-dark">
+            <h4>
+                <span class="badge textPurple">Comentarios ( {{commentCount}} ) :</span>
+            </h4>
+        </div>
+        {{#if comments}}
+        {{#each comments}}
+        <div class="card-body">
+            {{PERSONA_NOMBRE}}:
+        </div>
+        <div class="card-body shadow-sm">
+            {{COMENTARIO_DESCRIPCION}}
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>
+
+
+{{!-- <div class="container p-4">
+    <div class="container text-center my-3">
+
+        <div class="mb-3">
+            <div class="rounded-pill clearfix"
+                style="border: 2px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                <h2 style="color: #b82bb8;">Imagenes Recomendadas</h2>
+            </div>
+        </div>
+
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner recommended w-100" role="listbox">
+
+                <div class="carousel-item row no-gutters active">
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/222/fff?text=1"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/444?text=2"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/888?text=3"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/111/fff?text=4"></div>
+                </div>
+
+                <div class="carousel-item row no-gutters">
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280?text=5"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/555?text=6"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/333/fff?text=7"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/bbb?text=8"></div>
+                </div>
+            </div>
+
+            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+
+    </div>
+</div> --}}

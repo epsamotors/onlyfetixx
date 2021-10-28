@@ -1,0 +1,86 @@
+<div class="container p-4">
+    <div class="row">
+
+        <div class="col-md-8 mx-auto">
+            <div class="card">
+                <div class="card-header">
+                    <div class="panel-heading text-center">
+                        <h3>
+                            <div class="panel-title">Registro Imagen</div>
+                        </h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="/administrator/addImage" method="POST" class="row g-3 needs-validation"
+                        enctype="multipart/form-data">
+
+                        <div class="col-8">
+                            <label class="form-label">Nombre:</label>
+                            <input type="text" name="PRODUCTO_NOMBRE" class="form-control" placeholder="NOMBRE"
+                                maxlength="60" id="searchName" style="text-transform:uppercase"
+                                oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                required autofocus>
+                        </div>
+
+                        <div class="col-4">
+                            <label class="form-label">Precio:</label>
+                            <input type="number" name="PRODUCTO_PRECIO" placeholder="PRECIO UNITARIO"
+                                class="form-control"
+                                onkeypress="return (event.charCode >= 48 && event.charCode <= 57) || event.charCode == 0 "
+                                maxlength="15"
+                                oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label class="form-label">Categoria:</label>
+                            <div class="form-label">
+                                <select name="CATEGORIA_ID" class="form-select" aria-label="Default select example"
+                                    required>
+                                    {{#each category}}
+                                    <option value="{{CATEGORIA_ID}}">{{CATEGORIA_NOMBRE}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <label class="form-label">Descripción:</label>
+                            <textarea name="PRODUCTO_DESCRIPCION" rows="4" class="form-control"
+                                placeholder="DESCRIPCIÓN" style="text-transform:uppercase" required></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="file" accept="image/*" name="SUBIR_IMAGEN" class="form-control"
+                                onchange="loadFile(event)">
+                            {{!-- <font size=2 class="text-danger">Solo subir imagenes</font> --}}
+                        </div>
+                        <div class="mb-3 text-center">
+                            <img id="output" class="img-thumbnail" width="300px" />
+                        </div>
+
+                        <div class="col-12 text-center">
+                            <button class="btn btn-success">
+                                Guardar
+                            </button>
+                            <a href="/administrator" class="btn btn-danger">Cancelar</a>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    var loadFile = function (event) {
+        var reader = new FileReader();
+        reader.onload = function () {
+            var output = document.getElementById('output');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>

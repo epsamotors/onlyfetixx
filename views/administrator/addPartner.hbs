@@ -1,0 +1,67 @@
+<div class="container p-4">
+    <div class="row">
+
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-2">
+                    </div>
+                    <div class="mb-3">
+                    </div>
+                    <div class="rounded-pill clearfix"
+                        style="border: 1px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                        <h5 style="color: #b82bb8;">Agregar Colaboradores</h5>
+                    </div>
+                    <div class="mb-3">
+                    </div>
+                    <div class="col-md-8 text-center">
+                        <form class="d-flex" action="/administrator/addPartner/search" method="GET">
+                            <input class="form-control me-2" type="search" name="buscar" id="search"
+                                placeholder="Buscar Usuario" aria-label="Search">
+                            <button class="btn btn-outline-success " type="submit">Buscar</button>
+                        </form>
+                    </div>
+                    <div class="mb-3">
+                    </div>
+
+                    {{#if noUser}}
+                    <div class="col-md-4 mx-auto">
+                        <div class="mb-3">
+                        </div>
+                        <div class="card card-body border-danger text-center">
+                            <p class="text-danger">Usuario no Encontrado
+                            </p>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    {{#if persona}}
+                    <table class="table caption-top">
+                        <caption>Lista de Usuarios</caption>
+                        <thead class="text-center table-dark">
+                            <tr class="card-title text-uppercase">
+                                <td>Nombre</td>
+                                <td>Email</td>
+                                <td>Acciones</td>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            {{#each persona}}
+                            <tr>
+                                <td>{{PERSONA_NOMBRE}}</td>
+                                <td>{{PERSONA_CORREO}}</td>
+                                <td>
+                                    <a href="/administrator/activePartner/{{PERSONA_ID}}"
+                                        class="btn btn-success">Activar</a>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                    {{else}}
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

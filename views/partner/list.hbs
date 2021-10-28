@@ -1,0 +1,139 @@
+<div class="container p-4">
+    <div class="row">
+
+        <div class="col-xs-12 col-md-3 col-md-pull-9">
+            <div class="panel panel-default">
+                <div class="card">
+                    <div class="card-body text-secondary">
+                        <div class="d-grid gap-3">
+                            <a href="/partner/addImage" class="btn btn-outline-warning">
+                                Agregar Imagenes
+                            </a>
+                        </div>
+                        <div class="d-grid gap-3">
+                            <a href="/partner/addVideo" class="btn btn-outline-warning">
+                                Agregar Videos
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-9 col-md-push-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            {{#if images}}
+                            <div class="rounded-pill clearfix"
+                                style="border: 1px dotted #0D6EFD; text-align:center; center{margin:16px 0;">
+                                <h2 style="color: #0D6EFD;">Mis Fotos</h2>
+                            </div>
+                            <div class="mb-3">
+                            </div>
+                            {{#each images}}
+                            <div class="col-md-3">
+                                <div class="card mb-4 shadow-sm">
+
+                                    <div class="card-body">
+                                        <h3 class="card-title text-uppercase text-center">
+                                            {{PRODUCTO_NOMBRE}}
+                                        </h3>
+                                        <img src="{{PRODUCTO_URL}}" class="card-img-top" width="90px" height="150px">
+                                        <p class="m-2">Precio: $ {{PRODUCTO_PRECIO}}</p>
+                                        <div class="d-grid gap-3">
+                                            <a href="/partner/editImage/{{PRODUCTO_ID}}"
+                                                class="btn btn-outline-primary">Actualizar</a>
+                                            <a href="/partner/deleteImage/{{PRODUCTO_ID}}"
+                                                class="btn btn-outline-danger">Eliminar</a>
+
+                                            <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+                                                data-bs-target="#myAddImage{{@index}}">
+                                                Agregar
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal fade" id="myAddImage{{@index}}" data-bs-backdrop="static"
+                                data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-success" id="staticBackdropLabel">
+                                                <i class="fal fa-check-circle"> {{PRODUCTO_NOMBRE}}</i>
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+
+                                        <div class="modal-body">
+
+                                            <form action="/partner/addImageGallery" method="POST"
+                                                enctype="multipart/form-data">
+                                                <input type="hidden" name="PRODUCTO_ID" value={{PRODUCTO_ID}}>
+
+                                                <div class="mb-3">
+                                                    <input type="file" accept="image/*" name="SUBIR_IMAGEN"
+                                                        class="form-control" multiple>
+                                                </div>
+
+                                                <div class="col-12 text-center">
+                                                    <button class="btn btn-success">
+                                                        Guardar
+                                                    </button>
+                                                    <a href="/partner" class="btn btn-danger">Cancelar</a>
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{/each}}
+                            {{/if}}
+
+                            {{#if videos}}
+                            <div class="rounded-pill clearfix"
+                                style="border: 1px dotted #0D6EFD; text-align:center; center{margin:16px 0;">
+                                <h2 style="color: #0D6EFD;">Mis Videos</h2>
+                            </div>
+                            <div class="mb-3">
+                            </div>
+                            {{#each videos}}
+                            <div class="col-md-3">
+                                <div class="card mb-4 shadow-sm">
+
+                                    <div class="card-body">
+                                        <h3 class="card-title text-uppercase text-center">
+                                            {{PRODUCTO_NOMBRE}}
+                                        </h3>
+                                        <video src="{{PRODUCTO_URL}}" autoplay muted width="90px"
+                                            height="150px"></video>
+                                        <p class="m-2">Precio: $ {{PRODUCTO_PRECIO}}</p>
+                                        <div class="d-grid gap-3">
+                                            <a href="/partner/editVideo/{{PRODUCTO_ID}}"
+                                                class="btn btn-outline-primary">Actualizar</a>
+                                            <a href="/partner/deleteVideo/{{PRODUCTO_ID}}"
+                                                class="btn btn-outline-danger">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/each}}
+                            {{/if}}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

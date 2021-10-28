@@ -1,0 +1,39 @@
+<div class="container p-4">
+    <div class="row">
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-md-12">
+                    <div class="row">
+
+                        {{#if partner}}
+                        <div class="rounded-pill clearfix"
+                            style="border: 1px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                            <h2 style="color: #b82bb8;">Colaboradores</h2>
+                        </div>
+                        <div class="mb-3">
+                        </div>
+                        {{#each partner}}
+                        <div class="col-md-3">
+                            <div class="card mb-4 shadow-sm">
+
+                                <div class="card-body">
+                                    <h3 class="card-title text-uppercase text-center">
+                                        {{PERSONA_NOMBRE}}
+                                    </h3>
+                                    <div class="d-grid gap-3">
+                                        <a href="/administrator/galleryPartner/{{PERSONA_ID}}"
+                                            class="btn btn-outline-warning">Ver imagen</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/each}}
+                        {{/if}}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

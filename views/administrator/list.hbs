@@ -1,0 +1,155 @@
+<div class="container p-4">
+    <div class="row">
+
+        <div class="col-xs-12 col-md-3 col-md-pull-9">
+            
+            <div class="panel panel-default">
+                <div class="card">
+                    
+                    <div class="card-body text-secondary">
+                        <div class="d-grid gap-3">
+                            <a href="/administrator/addImage" class="btn btn-outline-warning">
+                                Agregar Imagenes
+                            </a>
+                        </div>
+                        <div class="d-grid gap-3">
+                            <a href="/administrator/addVideo" class="btn btn-outline-warning">
+                                Agregar Videos
+                            </a>
+                        </div>
+                        <div class="d-grid gap-3">
+                            <a class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#categoryModal">
+                                Agregar Categoria
+                            </a>
+                        </div>
+                        <div class="d-grid gap-3">
+                            <a href="/administrator/addPartner" class="btn btn-outline-warning">
+                                Agregar Colaboradores
+                            </a>
+                        </div>
+                        <div class="d-grid gap-3">
+                            <a href="/administrator/listPartner" class="btn btn-outline-warning">
+                               Buscar Colaboradores
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="categoryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-success" id="staticBackdropLabel">
+                            <i class="fal fa-check-circle"> Agregar nueva categoria</i>
+                        </h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/administrator/addCategory/" class="row g-3 needs-validation" method="POST"
+                            enctype="multipart/form-data">
+
+                            <div class="col-md-6">
+                                <label class="form-label">Nombre:</label>
+                                <input type="text" name="CATEGORIA_NOMBRE" placeholder="NOMBRE" class="form-control"
+                                    maxlength="60" style="text-transform:uppercase"
+                                    oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                                    required autofocus>
+                            </div>
+
+                            <div class="col-12">
+                                <label class="form-label">Descripción:</label>
+                                <textarea name="CATEGORIA_DESCRIPCION" rows="4" class="form-control"
+                                    placeholder="DESCRIPCIÓN" style="text-transform:uppercase" required></textarea>
+                            </div>
+
+                            <div class="col-12 text-center">
+                                <button class="btn btn-success">
+                                    Guardar
+                                </button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-12 col-md-9 col-md-push-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            {{#if images}}
+                            <div class="rounded-pill clearfix"
+                                style="border: 1px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                                <h2 style="color: #b82bb8;">Imagenes Agregadas al Sistema</h2>
+                            </div>
+                            <div class="mb-3">
+                            </div>
+                            {{#each images}}
+                            <div class="col-md-3">
+                                <div class="card mb-4 shadow-sm">
+
+                                    <div class="card-body">
+                                        <h3 class="card-title text-uppercase text-center">
+                                            {{PRODUCTO_NOMBRE}}
+                                        </h3>
+                                        <img src="{{PRODUCTO_URL}}" class="card-img-top" width="90px" height="150px">
+                                        <p class="m-2">Precio: $ {{PRODUCTO_PRECIO}}</p>
+                                        <div class="d-grid gap-3">
+                                            <a href="/administrator/editImage/{{PRODUCTO_ID}}"
+                                                class="btn btn-outline-primary">Actualizar</a>
+                                            <a href="/administrator/deleteImage/{{PRODUCTO_ID}}"
+                                                class="btn btn-outline-danger">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/each}}
+                            {{/if}}
+
+                            {{#if videos}}
+                            <div class="rounded-pill clearfix"
+                                style="border: 1px dotted #0D6EFD; text-align:center; center{margin:16px 0;">
+                                <h2 style="color: #0D6EFD;">Videos Agregados al Sistema</h2>
+                            </div>
+                            <div class="mb-3">
+                            </div>
+                            {{#each videos}}
+                            <div class="col-md-3">
+                                <div class="card mb-4 shadow-sm">
+
+                                    <div class="card-body">
+                                        <h3 class="card-title text-uppercase text-center">
+                                            {{PRODUCTO_NOMBRE}}
+                                        </h3>
+                                        <video src="{{PRODUCTO_URL}}" autoplay muted width="90px"
+                                            height="150px"></video>
+                                        <p class="m-2">Precio: $ {{PRODUCTO_PRECIO}}</p>
+                                        <div class="d-grid gap-3">
+                                            <a href="/administrator/editVideo/{{PRODUCTO_ID}}"
+                                                class="btn btn-outline-primary">Actualizar</a>
+                                            <a href="/administrator/deleteVideo/{{PRODUCTO_ID}}"
+                                                class="btn btn-outline-danger">Eliminar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/each}}
+                            {{/if}}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="container p-4">
+    <div class="row">
+
+        <div class="col-xs-12 col-md-3 col-md-pull-9">
+
+            <div class="accordion accordion-flush" id="accordionFlushExample">
+
+                <div class="accordion-item">
+                    <h2 class="accordion-header bg-dark" id="flush-headingTwo">
+                        <button class="accordion-button collapsed textPurple" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                            Buscar por Categoria
+                        </button>
+                    </h2>
+                    <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
+                        data-bs-parent="#accordionFlushExample">
+                        <div class="accordion-body">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <form action="/category" method="GET">{{!-- cambio en la ruta --}}
+                                        <div class="form-label">
+                                            <select name="CATEGORIA_ID" class="form-select"
+                                                aria-label="Default select example">
+                                                <option value="0" selected>Selecccione</option>
+                                                {{#each category}}
+                                                <option value="{{CATEGORIA_ID}}">{{CATEGORIA_NOMBRE}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </div>
+                                        <div class="d-grid gap-3">
+                                            <button class="btn btn-outline-success" type="submit">Buscar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-md-9 col-md-push-3">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="col-md-12">
+                        <div class="row">
+
+                            {{#if findProducts}}
+                            <div class="col-md-4 mx-auto">
+                                <div class="card card-body text-center">
+                                    <p>No se encontro su busqueda</p>
+                                </div>
+                            </div>
+                            {{/if}}
+
+                            {{!-- --}}
+
+                            {{#if products}}
+                            <div class="rounded-pill clearfix"
+                                style="border: 1px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                                <h5 style="color: #b82bb8;">Galleria</h5>
+                            </div>
+                            <div class="mb-3">
+                            </div>
+                            {{#each products}}
+                            <div class="col-md-3 text-center">
+                                <div class="card mb-4 shadow-sm">
+                                    <div class="card-body">
+                                        <img src="{{PRODUCTO_URL}}" class="card-img-top" width="100px" height="250px">
+                                        <h3 class="card-title text-uppercase">
+                                            {{PRODUCTO_NOMBRE}}
+                                        </h3>
+                                        </a>
+                                        <a href="detail/{{PRODUCTO_ID}}" class="btn btn-outline-warning">Detalle</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {{/each}}
+                            {{/if}}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,145 @@
+<a class="nav-link float" href="/cart">
+    <i class="fa fa-shopping-bag"></i>
+</a>
+
+<div class="container p-4">
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://st2.depositphotos.com/2931363/8936/i/950/depositphotos_89365842-stock-photo-woman-in-lingerie-lying-in.jpg"
+                            class="d-block w-100" alt="bootstrap" width="620px" height="450px">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://st2.depositphotos.com/2931363/8936/i/950/depositphotos_89365842-stock-photo-woman-in-lingerie-lying-in.jpg"
+                            class="d-block w-100" alt="..." width="620px" height="450px">
+                    </div>
+                    <div class="carousel-item">
+                        <a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blanck">
+                            <img src="https://st2.depositphotos.com/2931363/8936/i/950/depositphotos_89365842-stock-photo-woman-in-lingerie-lying-in.jpg"
+                                class="d-block w-100" alt="..." width="620px" height="450px">
+                        </a>
+
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row">
+        {{#if images}}
+        <div class="mb-3">
+            <div class="rounded-pill clearfix"
+                style="border: 2px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                <h2 style="color: #b82bb8;">Imagenes</h2>
+            </div>
+        </div>
+        {{#each images}}
+        <div class="col-md-3 text-center">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <img src="{{PRODUCTO_URL}}" class="card-img-top" width="100px" height="250px">
+                    <h3 class="card-title text-uppercase">
+                        {{PRODUCTO_NOMBRE}}
+                    </h3>
+                    </a>
+                    {{!-- <a href="/links/edit/{{id}}" class="btn btn-warning">Detalle</a> --}}
+                    <a href="detail/{{PRODUCTO_ID}}" class="btn btn-outline-warning">Detalle</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>
+
+<div class="container p-4">
+    <div class="row">
+        {{#if videos}}
+        <div class="mb-3">
+            <div class="rounded-pill clearfix"
+                style="border: 2px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                <h2 style="color: #b82bb8;">Videos</h2>
+            </div>
+        </div>
+        {{#each videos}}
+        <div class="col-md-3 text-center">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <video src="{{PRODUCTO_URL}}" preload muted width="100px" height="250px"></video>
+                    <h3 class="card-title text-uppercase">
+                        {{PRODUCTO_NOMBRE}}
+                    </h3>
+                    </a>
+                    {{!-- <a href="/links/edit/{{id}}" class="btn btn-warning">Detalle</a> --}}
+                    <a href="detail/{{PRODUCTO_ID}}" class="btn btn-outline-warning">Detalle</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+    </div>
+</div>
+
+{{!-- <div class="container p-4">
+    <div class="container text-center my-3">
+
+        <div class="mb-3">
+            <div class="rounded-pill clearfix"
+                style="border: 2px dotted #b82bb8; text-align:center; center{margin:16px 0;">
+                <h2 style="color: #b82bb8;">Imagenes Recomendadas</h2>
+            </div>
+        </div>
+
+        <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
+            <div class="carousel-inner recommended w-100" role="listbox">
+
+                <div class="carousel-item row no-gutters active">
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/222/fff?text=1"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/444?text=2"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/888?text=3"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/111/fff?text=4"></div>
+                </div>
+
+                <div class="carousel-item row no-gutters">
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280?text=5"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/555?text=6"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/333/fff?text=7"></div>
+                    <div class="col-3 float-left"><img class="img-fluid"
+                            src="http://via.placeholder.com/350x280/bbb?text=8"></div>
+                </div>
+
+            </div>
+
+            <a class="carousel-control-prev" href="#recipeCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+
+            <a class="carousel-control-next" href="#recipeCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
+        </div>
+
+    </div>
+</div> --}}
